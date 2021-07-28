@@ -1,25 +1,12 @@
 require 'docking_station.rb'
 
 describe DockingStation do
-
-  docking_station = DockingStation.new('docked') 
-
-  # it { expect(DockingStation.new.release_bike).to eq ('release bike')}
-  # it 'release bike' do
-  #   expect(DockingStation.new.release_bike).to eq ('release bike')
-  # end
-
-  it 'bike works' do
-    # bike =  Bike.new
-    expect(docking_station.release_bike.working?).to eq (true)
+  it 'responds to release_bike' do
+    expect(subject).to respond_to :release_bike
   end
 
-  it 'dock bikes' do
-    expect(docking_station.bike).to eq ('docked')
+  it 'releases working bikes' do
+    bike = subject.release_bike
+    expect(bike).to be_working
   end
 end
-
-  # it 'release bike' do
-  #   docking_station = DockingStation.new
-  #   expect(docking_station.release_bike).to eq ('release bike')
-  # end
